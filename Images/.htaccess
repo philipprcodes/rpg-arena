@@ -1,0 +1,7 @@
+Options -Indexes
+
+# Weiterleitung: philippcodes.de → login.php
+DirectoryIndex login.php
+
+# Weiterleitung: philippcodes.de/rpg → login.php
+RedirectMatch ^/rpg/?$ /login.php

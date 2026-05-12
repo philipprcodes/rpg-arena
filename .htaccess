@@ -1,0 +1,30 @@
+# ============================================================
+# .htaccess - Sicherheits & PHP Einstellungen
+# Diese Datei kommt in deinen Haupt-Projektordner (PHPProjekt/)
+# ============================================================
+
+# --- PHP Einstellungen (da du keine php.ini hast) ---
+
+# Fehlermeldungen AUSSCHALTEN (wichtig! sonst sehen Besucher deine Pfade & Code)
+php_flag  display_errors        Off
+php_flag  log_errors            On
+
+# Session Sicherheit
+php_value session.cookie_httponly  1
+php_value session.use_strict_mode  1
+
+# Zeichensatz
+php_value default_charset "UTF-8"
+
+# --- Backup Ordner sperren (falls du ihn aus Versehen hochlädst) ---
+# (Besser: Backup Ordner gar nicht erst hochladen!)
+
+# --- Verzeichnisauflistung verhindern ---
+# Verhindert dass Besucher alle deine Dateien auflisten können
+Options -Indexes
+
+# --- Direkt-Zugriff auf sensible Dateien sperren ---
+<FilesMatch "^(dbconfig\.php|Session\.php|debug.*\.txt)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

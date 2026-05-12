@@ -1,0 +1,5 @@
+dbconfig.php
+Session.php
+Backup/
+*.code-workspace
+debug_loot.txt
